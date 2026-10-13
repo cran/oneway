@@ -1,4 +1,4 @@
-#' Ryan-Einot-Gabriel-Welsch Studentized Range (REGWQ) test
+#' REGWQ -- Ryan-Einot-Gabriel-Welsch Studentized Range test
 #'
 #' Performs the Ryan-Einot-Gabriel-Welsch Studentized Range (REGWQ) multiple comparison procedure
 #' for all pairwise comparisons of group means following a one-way analysis of variance. REGWQ is
@@ -6,14 +6,12 @@
 #' statistical power than Tukey's HSD while maintaining strong control of the family-wise error rate
 #' under balanced designs.
 #'
-#' @param data A data frame, or an object returned by `oneway_anova()`, from which the response
-#'        and grouping variables are obtained.
+#' @param data A data frame, a list, or an object returned by `oneway_anova()`, from which the
+#'        response and grouping variables are obtained.
 #' @param formula A two-sided formula specifying the response and grouping variables in the form
-#'        `response ~ group`. Ignored if `data` is a `"oneway_aov"` object.
-#' @param alpha A numeric value between 0 and 1 specifying the significance level.
-#'        The default is `0.05`.
-#' @param rounding An integer specifying the number of decimal places to display in the output.
-#'        The default is `4`.
+#'        `response ~ group`. Ignored if `data` is a list or an `"oneway_aov"` object.
+#' @param alpha A numeric value between 0 and 1 (default: 0.05) specifying the significance level.
+#' @param rounding An integer (default: 4). The number of decimal places to display in the output.
 #' @param verbose Logical (default: TRUE). Show warnings and messages.
 #'
 #' @returns
@@ -44,7 +42,7 @@
 #' out <- REGWQ_test(morphine, tolerance ~ grp)
 #'
 #' @references
-#' Howell, D. C. (2010).
+#' Howell, D.C. (2010).
 #' Statistical Methods for Psychology (7th ed.).
 #' Cengage Learning. Chapter 12: Multiple comparisons among treatment means,
 #' Section 12.6: Post hoc comparisons, pg. 393-394.
@@ -150,7 +148,7 @@ REGWQ_test <- function(
         y2 <- yij[xij == x2]
         effect_size <- Hedges_g_s(y1, y2)  # from ./effect_size.R
 
-        post_hoc[[i]] <- oneway_post_hoc(  # from ./zzz_standard_output.R
+        post_hoc[[i]] <- oneway_post_hoc(  # from ./standard_output.R
             method = "REGWQ",
             alternative = "two.sided",
             alpha = alpha,
@@ -191,7 +189,7 @@ REGWQ_test <- function(
     cld <- cld[match(desc[["GROUP"]], names(cld))]
     desc[["CLD"]] <- cld
 
-    ret <- oneway_standard_output(  # from ./zzz_standard_output.R
+    ret <- oneway_standard_output(  # from ./standard_output.R
         method = "REGWQ multiple comparison procedure",
         data = df0,
         pre_hoc = pre_hoc,

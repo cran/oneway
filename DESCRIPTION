@@ -1,34 +1,36 @@
 Package: oneway
 Title: One-Way Statistical Analyses
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     person("Joon-Keat", "Lai", , "p10911004@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-9840-5836"))
-Description: Performs one-way tests of assumptions (normality and homoscedasticity), 
-    analysis of variance, robust and nonparametric alternatives, multiple comparison 
-    procedures, effect size estimators, confidence intervals, and descriptive summaries. 
-    Functions are designed with a consistent interface to support reproducible and 
+Description: Performs one-way tests of assumptions (normality and homoscedasticity),
+    analysis of variance, robust and nonparametric alternatives, multiple comparison
+    procedures, effect size estimators, confidence intervals, and descriptive summaries.
+    Functions are designed with a consistent interface to support reproducible and
     user-friendly statistical workflows. For more details see
     Howell (2010, ISBN:978-0-495-59784-1),
-    Zar (2014, ISBN:978-0-13-100846-5), 
-    Hollander et al. (2014, ISBN:978-0-470-38737-5), 
-    Montgomery (2017, ISBN:978-1-119-11347-8), 
+    Zar (2014, ISBN:978-0-13-100846-5),
+    Hollander et al. (2014, ISBN:978-0-470-38737-5),
+    Montgomery (2017, ISBN:978-1-119-11347-8),
     Lakens (2013) <doi:10.3389/fpsyg.2013.00863>, and
     Piepho (2004) <doi:10.1198/1061860043515>.
 License: MIT + file LICENSE
-URL: https://github.com/P10911004-NPUST/oneway
+URL: https://github.com/P10911004-NPUST/oneway,
+        https://p10911004-npust.github.io/oneway/
 BugReports: https://github.com/P10911004-NPUST/oneway/issues
 Encoding: UTF-8
 Imports: normality, outlying, varequal
-Suggests: ggplot2, testthat (>= 3.0.0)
+Suggests: ggplot2, knitr, rmarkdown, testthat (>= 3.0.0)
 Depends: R (>= 3.5)
 LazyData: true
 Config/testthat/edition: 3
 Config/roxygen2/version: 8.1.0
+VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2026-09-08 03:40:01 UTC; ABRC
+Packaged: 2026-10-13 06:02:49 UTC; ABRC
 Author: Joon-Keat Lai [aut, cre, cph] (ORCID:
     <https://orcid.org/0000-0002-9840-5836>)
 Maintainer: Joon-Keat Lai <p10911004@gmail.com>
 Repository: CRAN
-Date/Publication: 2026-09-15 13:20:02 UTC
+Date/Publication: 2026-10-13 06:20:02 UTC

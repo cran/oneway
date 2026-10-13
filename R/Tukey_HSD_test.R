@@ -5,14 +5,12 @@
 #' test controls the family-wise error rate and is appropriate when the assumptions of normality,
 #' homogeneity of variances, and balanced group sizes are reasonably satisfied.
 #'
-#' @param data A data frame, or an object returned by `oneway_anova()`, from which the response
-#'        and grouping variables are obtained.
+#' @param data A data frame, a list, or an object returned by `oneway_anova()`, from which the
+#'        response and grouping variables are obtained.
 #' @param formula A two-sided formula specifying the response and grouping variables in the form
-#'        `response ~ group`. Ignored if `data` is a `"oneway_aov"` object.
-#' @param alpha A numeric value between 0 and 1 specifying the significance level.
-#'        The default is `0.05`.
-#' @param rounding An integer specifying the number of decimal places to display in the output.
-#'        The default is `4`.
+#'        `response ~ group`. Ignored if `data` is a list or an `"oneway_aov"` object.
+#' @param alpha A numeric value between 0 and 1 (default: 0.05) specifying the significance level.
+#' @param rounding An integer (default: 4). The number of decimal places to display in the output.
 #' @param verbose Logical (default: TRUE). Show warnings and messages.
 #'
 #' @returns
@@ -139,7 +137,7 @@ Tukey_HSD_test <- function(
         y2 <- yij[xij == x2]
         effect_size <- Hedges_g_s(y1, y2)  # from ./effect_size.R
 
-        post_hoc[[i]] <- oneway_post_hoc(  # from ./zzz_standard_output.R
+        post_hoc[[i]] <- oneway_post_hoc(  # from ./standard_output.R
             method = "Tukey-HSD",
             alternative = "two.sided",
             alpha = alpha,
@@ -172,7 +170,7 @@ Tukey_HSD_test <- function(
     cld <- cld[match(desc[["GROUP"]], names(cld))]
     desc[["CLD"]] <- cld
 
-    ret <- oneway_standard_output(  # from ./zzz_standard_output.R
+    ret <- oneway_standard_output(  # from ./standard_output.R
         method = "Tukey-HSD multiple comparison procedure",
         data = df0,
         pre_hoc = pre_hoc,
